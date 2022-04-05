@@ -1,8 +1,8 @@
 package readers;
 
 import data.*;
-import exeptions.ReaderInterruptionException;
-import exeptions.WrongFieldFormatException;
+import exсeptions.ReaderInterruptionException;
+import exсeptions.WrongFieldFormatException;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package commands;
 
-import exeptions.NoValidArgumentException;
+import exсeptions.NoValidArgumentException;
 import utility.CollectionManager;
 
 public class Info implements Command<String>{

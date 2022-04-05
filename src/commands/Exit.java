@@ -1,7 +1,6 @@
 package commands;
 
-import commands.Command;
-import exeptions.NoValidArgumentException;
+import exсeptions.NoValidArgumentException;
 
 public class Exit implements Command<Boolean> {
     private String name;

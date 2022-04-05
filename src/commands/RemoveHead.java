@@ -1,7 +1,7 @@
 package commands;
 
 import data.City;
-import exeptions.NoValidArgumentException;
+import exсeptions.NoValidArgumentException;
 import utility.CollectionManager;
 
 public class RemoveHead implements Command<String>{

@@ -1,10 +1,9 @@
 package commands;
 
-import exeptions.NoValidArgumentException;
+import exсeptions.NoValidArgumentException;
 import utility.CommandManager;
 
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Help implements Command<String> {
     private String name;

@@ -3,7 +3,7 @@ package commands;
 import data.City;
 import data.Climate;
 import data.StandardOfLiving;
-import exeptions.NoValidArgumentException;
+import exсeptions.NoValidArgumentException;
 import utility.CollectionManager;
 
 public class Add implements Command<Boolean>{

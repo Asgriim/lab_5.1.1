@@ -1,4 +1,4 @@
-import exeptions.ReaderInterruptionException;
+import exсeptions.ReaderInterruptionException;
 import utility.UserSession;
 
 import javax.xml.bind.JAXBException;

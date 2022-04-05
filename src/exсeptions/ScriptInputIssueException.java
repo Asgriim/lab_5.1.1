@@ -1,4 +1,4 @@
-package exeptions;
+package exсeptions;
 
 public class ScriptInputIssueException extends Exception{
     public ScriptInputIssueException(String message) {

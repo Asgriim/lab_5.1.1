@@ -1,6 +1,6 @@
 package utility;
 import data.*;
-import exeptions.FileIssueException;
+import exсeptions.FileIssueException;
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.time.LocalDateTime;

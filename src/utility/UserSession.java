@@ -3,7 +3,7 @@ package utility;
 import commands.*;
 import data.Climate;
 import data.StandardOfLiving;
-import exeptions.FileIssueException;
+import exсeptions.FileIssueException;
 import readers.CityReader;
 
 import javax.xml.bind.JAXBException;

@@ -2,7 +2,7 @@ package utility;
 
 
 import data.City;
-import exeptions.FileIssueException;
+import exсeptions.FileIssueException;
 
 import java.io.*;
 import javax.xml.bind.*;

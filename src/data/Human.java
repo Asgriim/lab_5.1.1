@@ -1,6 +1,6 @@
 package data;
 
-import exeptions.WrongFieldFormatException;
+import exсeptions.WrongFieldFormatException;
 
 public class Human {
     private String name; //Поле не может быть null, Строка не может быть пустой

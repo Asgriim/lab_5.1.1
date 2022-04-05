@@ -1,7 +1,7 @@
 package commands;
 
 import data.Climate;
-import exeptions.NoValidArgumentException;
+import exсeptions.NoValidArgumentException;
 import utility.CollectionManager;
 
 public class RemoveAnyByClimate implements Command<Boolean>{

@@ -1,6 +1,6 @@
 package data;
 
-import exeptions.WrongFieldFormatException;
+import exсeptions.WrongFieldFormatException;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

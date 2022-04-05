@@ -1,6 +1,6 @@
 package commands;
 
-import exeptions.NoValidArgumentException;
+import exсeptions.NoValidArgumentException;
 
 public interface Command<T> {
     T execute(String[] argument);

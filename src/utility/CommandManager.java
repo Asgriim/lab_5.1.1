@@ -1,10 +1,10 @@
 package utility;
 
 import commands.Command;
-import exeptions.FileIssueException;
-import exeptions.NoValidArgumentException;
-import exeptions.ReaderInterruptionException;
-import exeptions.ScriptInputIssueException;
+import exсeptions.FileIssueException;
+import exсeptions.NoValidArgumentException;
+import exсeptions.ReaderInterruptionException;
+import exсeptions.ScriptInputIssueException;
 import readers.CityReader;
 import readers.ScriptCityReader;
 

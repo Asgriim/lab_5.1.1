@@ -1,7 +1,7 @@
 package commands;
 
-import exeptions.FileIssueException;
-import exeptions.NoValidArgumentException;
+import exсeptions.FileIssueException;
+import exсeptions.NoValidArgumentException;
 import utility.CommandManager;
 import utility.FileManager;
 
