@@ -54,7 +54,7 @@ public class UserSession {
                 collectionManager));
         commandManager.addCommand(new PrintUniqueSOL("print_unique_standard_of_living","print unique standard of living values","doesn't receive an argument",
                 collectionManager));
-        commandManager.addCommand(new RemoveAnyByClimate("remove_any_by_climate climate","remove firs element that equals specified",
+        commandManager.addCommand(new RemoveAnyByClimate("remove_any_by_climate","remove firs element that equals specified",
                 "receive climate const as argument: " + Arrays.toString(Climate.values()),collectionManager));
         commandManager.addCommand(new RemoveById("remove_by_id","remove element by id","receives integer value as argument",
                 collectionManager));

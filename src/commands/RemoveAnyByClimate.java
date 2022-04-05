@@ -19,7 +19,6 @@ public class RemoveAnyByClimate implements Command<Boolean>{
 
     @Override
     public Boolean execute(String[] argument) {
-
         return collectionManager.removeAnyByClimate(Climate.valueOf(argument[0].toUpperCase()));
     }
 

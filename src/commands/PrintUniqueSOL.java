@@ -21,7 +21,7 @@ public class PrintUniqueSOL implements Command<String>{
         if(collectionManager.getUniqueStandards().isEmpty()){
             return "collection is empty\n";
         }
-        return collectionManager.getUniqueStandards().toString();
+        return collectionManager.getUniqueStandards().toString() + "\n";
     }
 
     @Override
