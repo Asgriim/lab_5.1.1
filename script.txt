@@ -1,3 +1,11 @@
-clear
-execute_script scr.txt
-show
+add
+123
+22e
+2
+3
+4
+12
+9900
+oceanic
+high
+bebra

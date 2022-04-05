@@ -65,7 +65,7 @@ public class ScriptCityReader {
             fields.add(fileInput);
             return fields.toArray(new String[0]);
         } catch (WrongFieldFormatException e) {
-            throw new ScriptInputIssueException("Script error\nWrong collection element format");
+            throw new ScriptInputIssueException("Script error\nWrong collection element field format\n" + e.getMessage() + "\n");
         }
 
     }
