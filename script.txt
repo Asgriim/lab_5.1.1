@@ -1,0 +1,3 @@
+clear
+execute_script scr.txt
+show

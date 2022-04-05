@@ -1,0 +1,3 @@
+clear
+show
+execute_script script.txt
