@@ -5,8 +5,13 @@ import javax.xml.bind.JAXBException;
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException, ReaderInterruptionException, JAXBException {
-        UserSession userSesion = new UserSession();
-        userSesion.run("LABA");
+    public static void main(String[] args)  {
+
+        UserSession userSession = new UserSession();
+        try {
+            userSession.run("LABA");
+        } catch (JAXBException e) {
+            System.out.println("xml error");;
+        }
     }
 }

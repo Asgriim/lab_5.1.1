@@ -19,7 +19,8 @@ public class PrintUniqueSOL implements Command<String>{
     @Override
     public String execute(String[] argument) {
         if(collectionManager.getUniqueStandards().isEmpty()){
-            return "collection is empty\n";
+            if(collectionManager.getCollection().isEmpty()) return "collection is empty\n";
+            return "no cities with climate\n";
         }
         return collectionManager.getUniqueStandards().toString() + "\n";
     }
