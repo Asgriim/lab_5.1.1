@@ -113,7 +113,7 @@ public class CommandManager {
                 // TODO: 03.04.2022 чо то здесь придумать
                 e.printStackTrace();
             } catch (ScriptInputIssueException e) {
-                throw e;
+                throw new ScriptInputIssueException("error in "+ currentCommand.getName()+ "\n" +  e.getMessage());
             }
         }
         if(commandName.equals("execute_script")){
