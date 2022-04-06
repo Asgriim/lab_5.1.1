@@ -83,7 +83,9 @@ public class CollectionManager {
         Iterator<City> iter = getIterator();
         int count = 0;
         while (iter.hasNext()){
-            if (iter.next().getStandardOfLiving().equals(SOL)){
+            City tempCity = iter.next();
+            if (tempCity.getClimate() == null) continue;
+            if (tempCity.getStandardOfLiving().equals(SOL)){
                 count++;
             }
         }
@@ -93,7 +95,9 @@ public class CollectionManager {
     public boolean removeAnyByClimate(Climate climate){
         Iterator<City> iter = getIterator();
         while (iter.hasNext()){
-            if (iter.next().getClimate().equals(climate)){
+            City tempCity = iter.next();
+            if (tempCity.getClimate() == null) continue;
+            if (tempCity.getClimate().equals(climate)){
                 iter.remove();
                 return true;
             }
@@ -115,7 +119,9 @@ public class CollectionManager {
         Set<StandardOfLiving> set = new HashSet<>();
         List<StandardOfLiving> list = new ArrayList<>();
         while (iter.hasNext()){
-            set.add(iter.next().getStandardOfLiving());
+            City tempCity = iter.next();
+            if (tempCity.getClimate() == null) continue;
+            set.add(tempCity.getStandardOfLiving());
         }
         return set;
     }

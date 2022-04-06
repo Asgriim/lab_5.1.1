@@ -1,11 +1,10 @@
+show
+remove_head
+remove_any_by_climate mediterranian
+remove_first
+remove_by_id 2
+count_by_standard_of_living high
+info
+print_unique_standard_of_living
+clear
 add
-123
-22e
-2
-3
-4
-12
-9900
-oceanic
-high
-bebra
