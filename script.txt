@@ -1,22 +1,2 @@
 show
-remove_head 2
-remove_any_by_climate mediterranian
-remove_first
-remove_by_id 2
-count_by_standard_of_living high
-info
-add
-d
-2
-3
-123
-32
-2
-322
-oceanic
-high
-nameHuman
-show
-update 1
-print_unique_standard_of_living
-clear
+execute_script scr.txt

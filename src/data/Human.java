@@ -26,7 +26,7 @@ public class Human {
     }
 
     public static boolean validateName (String name) throws WrongFieldFormatException {
-        if (name == null) throw new WrongFieldFormatException("can't be null");
+        if (name == null) throw new WrongFieldFormatException("governor name can't be null");
         if (name.equals("")){
             throw new WrongFieldFormatException("name can't be empty");
         }

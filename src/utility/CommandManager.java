@@ -7,11 +7,13 @@ import exсeptions.ReaderInterruptionException;
 import exсeptions.ScriptInputIssueException;
 import readers.CityReader;
 import readers.ScriptCityReader;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * operates commands and scripts
@@ -25,7 +27,6 @@ public class CommandManager {
     private CityReader cityReader;
     private Deque<String> scriptStack;
     private FileManager fileManager;
-    private List<String> commandOutputStringNames;
 
     public CommandManager(FileManager fileManager,BufferedWriter writer,CityReader cityReader) {
         this.writer = writer;
@@ -34,7 +35,6 @@ public class CommandManager {
         this.argument = new String[1];
         this.scriptStack = new ArrayDeque<>();
         this.fileManager = fileManager;
-        this.commandOutputStringNames = Arrays.asList("remove_by_id","clear","save","execute_script","exit","remove_first","remove_any_by_climate");
     }
 
     /**
@@ -44,12 +44,12 @@ public class CommandManager {
      */
     public void handle(String command) throws IOException {
         parseInput(command);
-        currentCommand = commandMap.get(commandName);
-        if (currentCommand == null){
+        if (!commandMap.containsKey(commandName)){
             writer.write("no such command\ntype help to see command list\n");
             writer.flush();
             return;
         }
+        currentCommand = commandMap.get(commandName);
         try {
             currentCommand.validateArgument(argument);
         } catch (NoValidArgumentException e) {
@@ -58,7 +58,8 @@ public class CommandManager {
             writer.flush();
             return;
         }
-        if (commandName.equals("add") || commandName.equals("update") || commandName.equals("add_if_max")){
+        if (currentCommand.getClass().getSimpleName().equals("Add") || currentCommand.getClass().getSimpleName().equals("Update")
+                || currentCommand.getClass().getSimpleName().equals("AddIfMax")){
             try {
                 if ((boolean)currentCommand.execute(cityReader.read())){
                     writer.write(currentCommand.getName() + " executed successfully\n");
@@ -74,15 +75,20 @@ public class CommandManager {
                 return;
             }
         }
-        if (commandOutputStringNames.contains(commandName)){
-            if((boolean)currentCommand.execute(argument)){
-                writer.write(currentCommand.getName() + " executed\n");
+        try {
+            if (currentCommand.getClass().getDeclaredMethod("execute", String[].class).getReturnType().getSimpleName().equals("Boolean")){
+                if((boolean)currentCommand.execute(argument)){
+                    writer.write(currentCommand.getName() + " executed\n");
+                    writer.flush();
+                    return;
+                }
+                writer.write(currentCommand.getName() + " not executed\n");
                 writer.flush();
                 return;
             }
-            writer.write(currentCommand.getName() + " not executed\n");
+        } catch (NoSuchMethodException e) {
+            writer.write("unexpected error");
             writer.flush();
-            return;
         }
         writer.write((String) currentCommand.execute(argument));
         writer.flush();
@@ -95,17 +101,18 @@ public class CommandManager {
      */
     private void scriptHandle(BufferedReader scriptReader) throws ScriptInputIssueException, IOException {
         parseInput(scriptReader.readLine());
-        currentCommand = commandMap.get(commandName);
-        if (currentCommand == null){
+        if (!commandMap.containsKey(commandName)){
             throw new ScriptInputIssueException("script error\nno such command\n");
         }
+        currentCommand = commandMap.get(commandName);
         try {
             currentCommand.validateArgument(argument);
         } catch (NoValidArgumentException e) {
             throw new ScriptInputIssueException("script error\n"
                     + currentCommand.getName() + ": " + e.getMessage() + "\n");
         }
-        if(commandName.equals("add") || commandName.equals("update") || commandName.equals("add_if_max")){
+        if(currentCommand.getClass().getSimpleName().equals("Add") || currentCommand.getClass().getSimpleName().equals("Update") ||
+                currentCommand.getClass().getSimpleName().equals("AddIfMax")){
             try {
                 currentCommand.execute(new ScriptCityReader(scriptReader).read());
                 return;
@@ -113,10 +120,10 @@ public class CommandManager {
                 // TODO: 03.04.2022 чо то здесь придумать
                 e.printStackTrace();
             } catch (ScriptInputIssueException e) {
-                throw new ScriptInputIssueException("error in "+ currentCommand.getName()+ "\n" +  e.getMessage());
+                throw new ScriptInputIssueException("error in "+ currentCommand.getName()+ " command" + "\n" +  e.getMessage());
             }
         }
-        if(commandName.equals("execute_script")){
+        if(currentCommand.getClass().getSimpleName().equals("ExecuteScript")){
             if (scriptStack.contains(argument[0])){
                 scriptStack.pop();
                 throw new ScriptInputIssueException("script error\n script looping\n");
@@ -124,10 +131,15 @@ public class CommandManager {
             currentCommand.execute(argument);
             return;
         }
-        if(!commandOutputStringNames.contains(commandName)){
-            writer.write((String) currentCommand.execute(argument));
+        try {
+            if(currentCommand.getClass().getDeclaredMethod("execute", String[].class).getReturnType().getSimpleName().equals("String")){
+                writer.write((String) currentCommand.execute(argument));
+                writer.flush();
+                return;
+            }
+        } catch (NoSuchMethodException e) {
+            writer.write("unexpected script error");
             writer.flush();
-            return;
         }
         currentCommand.execute(argument);
 
@@ -135,7 +147,7 @@ public class CommandManager {
 
     /**
      * add command to a map
-     * @param command
+     * @param command command object to add
      */
     public void addCommand(Command command){
         this.commandMap.put(command.getName(),command);

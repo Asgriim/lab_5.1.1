@@ -156,7 +156,7 @@ public class City implements Comparable<City> {
     }
 
     public static boolean validateName (String name) throws WrongFieldFormatException {
-        if (name == null) throw new WrongFieldFormatException("can't be null");
+        if (name == null) throw new WrongFieldFormatException("name can't be null");
         if (name.equals("")){
             throw new WrongFieldFormatException("name can't be empty");
         }
@@ -166,7 +166,7 @@ public class City implements Comparable<City> {
     }
 
     public static boolean validateArea(String area) throws WrongFieldFormatException {
-        if (area == null) throw new WrongFieldFormatException("can't be null");
+        if (area == null) throw new WrongFieldFormatException("area can't be null");
         Integer num;
         try {
             num = Integer.valueOf(area);
@@ -180,7 +180,7 @@ public class City implements Comparable<City> {
     }
 
     public static boolean validatePopulation(String population) throws WrongFieldFormatException {
-        if (population == null) throw new WrongFieldFormatException("can't be null");
+        if (population == null) throw new WrongFieldFormatException("population can't be null");
         Integer num;
         try {
             num = Integer.valueOf(population);
@@ -194,7 +194,7 @@ public class City implements Comparable<City> {
     }
 
     public static boolean validateMetersAboveSea(String metersAboveSea) throws WrongFieldFormatException {
-        if (metersAboveSea == null) throw new WrongFieldFormatException("can't be null");
+        if (metersAboveSea == null) throw new WrongFieldFormatException("maters above sea can't be null");
         Double num;
         try {
             Double.valueOf(metersAboveSea);
@@ -205,7 +205,7 @@ public class City implements Comparable<City> {
     }
 
     public static boolean validateTelephoneCode(String telephoneCode) throws WrongFieldFormatException {
-        if (telephoneCode == null) throw new WrongFieldFormatException("can't be null");
+        if (telephoneCode == null) throw new WrongFieldFormatException("telephone code can't be null");
         Integer num;
         try {
             num = Integer.valueOf(telephoneCode);
@@ -222,7 +222,7 @@ public class City implements Comparable<City> {
     }
 
     public static boolean validateClimate(String climate) throws WrongFieldFormatException {
-        if (climate == null) throw new WrongFieldFormatException("can't be null");
+        if (climate == null) throw new WrongFieldFormatException("climate can't be null");
         try {
            Climate.valueOf(climate);
         } catch (IllegalArgumentException e) {
@@ -232,7 +232,7 @@ public class City implements Comparable<City> {
     }
 
     public static boolean validateSOL(String sol) throws WrongFieldFormatException {
-        if (sol == null) throw new WrongFieldFormatException("can't be null");
+        if (sol == null) throw new WrongFieldFormatException("standard of living can't be null");
         try {
             StandardOfLiving.valueOf(sol);
         } catch (IllegalArgumentException e) {

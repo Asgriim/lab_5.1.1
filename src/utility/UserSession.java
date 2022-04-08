@@ -47,7 +47,7 @@ public class UserSession {
                 "receive standard of living const as argument: " + Arrays.toString(StandardOfLiving.values()),collectionManager));
         commandManager.addCommand(new ExecuteScript("execute_script","execute script from a file","receives a file name as argument,\n\tfile mast be readable and in current directory",
                 commandManager,fileManager));
-        commandManager.addCommand(new Exit("exit","exit programm without saving","doesn't receive an argument"));
+        commandManager.addCommand(new Exit("exit","exit program without saving","doesn't receive an argument"));
         commandManager.addCommand(new Help("help","print a list of commands or description of specified one","can receive an argument as command name\n\t for example: help info",
                 commandManager));
         commandManager.addCommand(new Info("info","print information about collection","doesn't receive an argument",

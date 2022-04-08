@@ -41,7 +41,7 @@ public class Coordinates {
                 '}';
     }
     public static boolean validateX(String x) throws WrongFieldFormatException {
-        if (x == null) throw new WrongFieldFormatException("can't be null");
+        if (x == null) throw new WrongFieldFormatException("x can't be null");
         Integer num;
         try {
             num = Integer.valueOf(x);
@@ -54,7 +54,7 @@ public class Coordinates {
         return true;
     }
     public static boolean validateY(String y) throws WrongFieldFormatException {
-        if (y == null) throw new WrongFieldFormatException("can't be null");
+        if (y == null) throw new WrongFieldFormatException("y can't be null");
         Double num;
         try {
             Double.valueOf(y);
