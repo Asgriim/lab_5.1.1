@@ -116,6 +116,10 @@ public class City implements Comparable<City> {
         this.standardOfLiving = standardOfLiving;
     }
 
+    public void setGovernor(Human governor) {
+        this.governor = governor;
+    }
+
     @Override
     public String toString() {
         return "City{" +

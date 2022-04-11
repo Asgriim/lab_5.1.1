@@ -82,7 +82,8 @@ public class Add implements Command<Boolean>{
             tempCity.setStandardOfLiving(StandardOfLiving.valueOf(fields[8]));
         }
         if (fields[9].equals("")){
-            tempCity.getGovernor().setName(null);
+            tempCity.setGovernor(null);
+//            tempCity.getGovernor().setName(null);
         }
         else {
             tempCity.getGovernor().setName(fields[9]);

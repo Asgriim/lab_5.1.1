@@ -54,7 +54,7 @@ public class Update implements Command<Boolean>{
             tempCity.setStandardOfLiving(StandardOfLiving.valueOf(argument[8]));
         }
         if (argument[9].equals("")){
-            tempCity.getGovernor().setName(null);
+            tempCity.setGovernor(null);
         }
         else {
             tempCity.getGovernor().setName(argument[9]);
